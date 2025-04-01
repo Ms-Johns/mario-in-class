@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://dshlynlk6dc5y"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_7esur"]
+[ext_resource type="Texture2D" uid="uid://bausni6inywyv" path="res://Assets/Sprites/Mario_Small_Death.png" id="2_2njnm"]
+[ext_resource type="Texture2D" uid="uid://d3jwm15et3t22" path="res://Assets/Sprites/Mario_Small_Idle.png" id="3_eecqc"]
+[ext_resource type="Texture2D" uid="uid://bqfjqbv1vr2oq" path="res://Assets/Sprites/Mario_Small_Jump.png" id="4_chp3i"]
+[ext_resource type="Texture2D" uid="uid://ckd7ka2h150dt" path="res://Assets/Sprites/Mario_Small_Pole.png" id="5_pb6p6"]
+[ext_resource type="Texture2D" uid="uid://b7pkrn5h1n5lm" path="res://Assets/Sprites/Mario_Small_Run1.png" id="6_d72tb"]
+[ext_resource type="Texture2D" uid="uid://dlhg7nbxeials" path="res://Assets/Sprites/Mario_Small_Run2.png" id="7_6okuy"]
+[ext_resource type="Texture2D" uid="uid://d01eopk6c4cx1" path="res://Assets/Sprites/Mario_Small_Run3.png" id="8_fs3ew"]
+[ext_resource type="Texture2D" uid="uid://cal7r48xqmfrt" path="res://Assets/Sprites/Mario_Small_Slide.png" id="9_vh0it"]
+[ext_resource type="Script" path="res://Scripts/player_animated_sprite_2d.gd" id="10_nql22"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xropf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2njnm")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_eecqc")
+}],
+"loop": true,
+"name": &"small_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_chp3i")
+}],
+"loop": true,
+"name": &"small_jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pb6p6")
+}],
+"loop": true,
+"name": &"small_pole",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_d72tb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6okuy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fs3ew")
+}],
+"loop": true,
+"name": &"small_run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_vh0it")
+}],
+"loop": true,
+"name": &"small_slide",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f27vo"]
+size = Vector2(12, 16)
+
+[node name="player" type="CharacterBody2D"]
+collision_mask = 6
+script = ExtResource("1_7esur")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xropf")
+animation = &"small_slide"
+script = ExtResource("10_nql22")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f27vo")
