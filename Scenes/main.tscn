@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://njpkrko8j8x"]
+[gd_scene load_steps=10 format=4 uid="uid://njpkrko8j8x"]
 
 [ext_resource type="Texture2D" uid="uid://bh2i2pbd72n30" path="res://Assets/Sprites/GroundBlock.png" id="1_qjj6f"]
 [ext_resource type="Texture2D" uid="uid://8as4lix1a8pr" path="res://Assets/Sprites/HardBlock.png" id="2_hefot"]
 [ext_resource type="Texture2D" uid="uid://dbhkvad8kmca" path="res://Assets/Sprites/UndergroundBlock.png" id="3_5dw1i"]
 [ext_resource type="PackedScene" uid="uid://dshlynlk6dc5y" path="res://Scenes/player.tscn" id="4_jenjh"]
+[ext_resource type="PackedScene" uid="uid://5o8oc4tyckph" path="res://Scenes/goomba.tscn" id="5_5v4s4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_unlet"]
 texture = ExtResource("1_qjj6f")
@@ -38,3 +39,9 @@ camera_sync = NodePath("../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.75, 2.75)
+
+[node name="goomba2" parent="." instance=ExtResource("5_5v4s4")]
+position = Vector2(190, 18)
+
+[node name="goomba" parent="." instance=ExtResource("5_5v4s4")]
+position = Vector2(157, 19)
